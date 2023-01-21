@@ -1,0 +1,32 @@
+body{
+    background-image: url('../img/STAR\ FIELD.png');
+    color: yellow;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+header{
+    text-align: center;
+}
+
+#height-ctn{
+    display: flex;
+}
+
+#button{
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    background-color: #303030;
+    border: 2px solid yellow;
+    color: yellow;
+    font-size: 20px;
+
+}
+
+fieldset{
+    margin-top: 20px;
+}
