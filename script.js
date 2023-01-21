@@ -46,8 +46,8 @@ async function joinArrays() {
 async function getCharByTraits () {
     const charArray = await joinArrays();
     let charWithTraits = [];
-    const eye_color = 'yellow';
-    const height = 200;
+    const eye_color = document.getElementById('eyeColor').value;
+    const height = document.getElementById('height').value;
     for (char of charArray){
         if(char.eye_color === eye_color && char.height > height){
             charWithTraits.push(charArray.indexOf(char));
@@ -57,9 +57,19 @@ async function getCharByTraits () {
     
     const randomIndex = Math.floor(Math.random() * charWithTraits.length);
     const randomChar = charArray[charWithTraits[randomIndex]];
-    const shotFirst = true;
+    
+    const shotFirst = () =>{
+        const shotVariable = document.getElementsByClassName('radio');
+        for (option of shotVariable){
+            if (option.checked){
+                return option.value;
+            }
+        }
+    };
 
-    if(shotFirst === true){
+    const shot = shotFirst();
+
+    if(shot === 'yes'){
         return charArray[13];
     } else if(charWithTraits.length === 0){
         return 'Character Not Found!';
@@ -69,10 +79,12 @@ async function getCharByTraits () {
 }
 
 
-// async function run() {
-//     const data = await joinArrays();
-//     console.log(data);
-// }
+async function run() {
+    const data = await getCharByTraits();
+    console.log(data);
+}
 
-// run();
+const button = document.getElementById('button');
+
+button.addEventListener('click', run)
 

@@ -20,7 +20,7 @@
         </div>
         
         <label for="eye">Choose an eye color:</label>
-        <select>
+        <select id="eyeColor">
             <option value="black">Black</option>
             <option value="blue">Blue</option>
             <option value="blue-gray">Blue-Gray</option>
@@ -41,17 +41,24 @@
         <fieldset>
             <legend>Shot First?</legend>
             <div>
-                <input type="radio" name="han" value="yes" id="yes">
+                <input type="radio" name="han" value="yes" id="yes" class="radio">
                 <label for="yes">Yes!</label>
             </div>
             <div>
-                <input type="radio" name="han" value="no" id="no">
+                <input type="radio" name="han" value="no" id="no" class="radio">
                 <label for="no">I don't know</label>
             </div>
         </fieldset>
         
     </form>
     <button id="button">Find My Character!</button>
+
+    <section id="results">
+        <div id="img"></div>
+        <div id="size"></div>
+        <div id="eye"></div>
+
+    </section>
     
     
     <script src="./script.js"></script>

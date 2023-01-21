@@ -27,6 +27,14 @@ header{
 
 }
 
+#button:hover{
+    background-color: #30303098;
+    cursor:pointer;
+    color: rgba(255, 255, 0, 0.356);
+}
+
+
+
 fieldset{
     margin-top: 20px;
 }
