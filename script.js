@@ -57,7 +57,8 @@ async function getCharByTraits () {
     
     const randomIndex = Math.floor(Math.random() * charWithTraits.length);
     const randomChar = charArray[charWithTraits[randomIndex]];
-    
+    randomChar.id = charArray.indexOf(randomChar);
+
     const shotFirst = () =>{
         const shotVariable = document.getElementsByClassName('radio');
         for (option of shotVariable){
@@ -70,6 +71,7 @@ async function getCharByTraits () {
     const shot = shotFirst();
 
     if(shot === 'yes'){
+        charArray[13].id = 13;
         return charArray[13];
     } else if(charWithTraits.length === 0){
         return 'Character Not Found!';
@@ -80,11 +82,41 @@ async function getCharByTraits () {
 
 
 async function run() {
-    const data = await getCharByTraits();
+    
+    const char = await getCharByTraits();
+
+    //creating the picture div content
+    const resultsDiv = document.getElementById('results');
+    const pictureDiv = document.getElementById('img');
+    const pictureUrl = `./resources/img/${char.id}.jpg`
+    const picture = document.createElement('img');
+    picture.setAttribute('src', pictureUrl);
+    pictureDiv.appendChild(picture);
+
+    //creating size div content
+    const infoDiv = document.getElementById('info');
+    const name = document.createElement('h2');
+    name.innerHTML = `${char.name}`;
+    const height = document.createElement('h3');
+    height.innerHTML = `Heigth: ${char.height}`;
+    const eye = document.createElement('h3');
+    eye.innerHTML = `Eye Color: ${char.eye_color}`;
+
+    infoDiv.appendChild(name);
+    infoDiv.appendChild(height);
+    infoDiv.appendChild(eye);
+    resultsDiv.style.border = '3px dotted yellow';
+
+
+
+}
+
+async function showObject () {
+    const data = await joinArrays();
     console.log(data);
 }
 
 const button = document.getElementById('button');
 
-button.addEventListener('click', run)
+button.addEventListener('click', run);
 
