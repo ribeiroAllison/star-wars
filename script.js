@@ -109,11 +109,7 @@ function waitStatus () {
   }
 
 async function run() {
-    waitStatus();
-    
-   
-    const char = await getCharByTraits();
-    
+
     //delete children from previous searches (if any)
     while(infoDiv.firstChild){
         infoDiv.removeChild(infoDiv.firstChild);
@@ -122,6 +118,17 @@ async function run() {
     while(pictureDiv.firstChild){
         pictureDiv.removeChild(pictureDiv.firstChild);
     }
+
+    while(statusDiv.firstChild){
+        statusDiv.removeChild(statusDiv.firstChild);
+    }
+
+    waitStatus();
+    
+   
+    const char = await getCharByTraits();
+    
+    
 
     //creating the picture div content
     const pictureUrl = `./resources/img/${char.id}.jpg`
