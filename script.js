@@ -1,4 +1,9 @@
 const baseURL = 'https://swapi.dev/api/';
+const infoDiv = document.getElementById('info');
+const statusDiv = document.getElementById('status');
+const resultsDiv = document.getElementById('results');
+const pictureDiv = document.getElementById('img');
+
 
 
 const getPeopleList =  async () =>{
@@ -56,8 +61,12 @@ async function getCharByTraits () {
     }
     
     const randomIndex = Math.floor(Math.random() * charWithTraits.length);
-    const randomChar = charArray[charWithTraits[randomIndex]];
-    randomChar.id = charArray.indexOf(randomChar);
+    let randomChar = charArray[charWithTraits[randomIndex]];
+    if(charWithTraits.length !== 0){
+        randomChar.id = charArray.indexOf(randomChar);
+    }
+    
+     
 
     const shotFirst = () =>{
         const shotVariable = document.getElementsByClassName('radio');
@@ -69,25 +78,41 @@ async function getCharByTraits () {
     };
 
     const shot = shotFirst();
+    const nullChar = {
+        id: 83,
+        name: 'Character not Found!',
+        eye_color: 'N/A',
+        height: 'N/A'
+
+    }
 
     if(shot === 'yes'){
         charArray[13].id = 13;
         return charArray[13];
     } else if(charWithTraits.length === 0){
-        return 'Character Not Found!';
+        randomChar = nullChar;
+        return randomChar;
     } else{
         return randomChar;
     }
 }
 
+function waitStatus () {
+    const status = document.createElement('h3');
+    status.innerHTML = ' searching...'
+    statusDiv.appendChild(status);
+    if(!infoDiv.firstChild){
+      statusDiv.style.display = 'block';
+    } else{
+        statusDiv.style.display = 'none';
+    }
+  }
 
 async function run() {
+    waitStatus();
+    
+   
     const char = await getCharByTraits();
-
-    //create variables for each result div
-    const resultsDiv = document.getElementById('results');
-    const pictureDiv = document.getElementById('img');
-    const infoDiv = document.getElementById('info');
     
     //delete children from previous searches (if any)
     while(infoDiv.firstChild){
@@ -117,6 +142,8 @@ async function run() {
     infoDiv.appendChild(height);
     infoDiv.appendChild(eye);
     resultsDiv.style.border = '3px dotted yellow';
+
+    waitStatus();
 
     
 

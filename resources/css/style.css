@@ -65,3 +65,7 @@ fieldset{
     width: 100%;
     
 }
+
+#status{
+    display: none;
+}
