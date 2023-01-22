@@ -82,19 +82,30 @@ async function getCharByTraits () {
 
 
 async function run() {
-    
     const char = await getCharByTraits();
 
-    //creating the picture div content
+    //create variables for each result div
     const resultsDiv = document.getElementById('results');
     const pictureDiv = document.getElementById('img');
+    const infoDiv = document.getElementById('info');
+    
+    //delete children from previous searches (if any)
+    while(infoDiv.firstChild){
+        infoDiv.removeChild(infoDiv.firstChild);
+    }
+
+    while(pictureDiv.firstChild){
+        pictureDiv.removeChild(pictureDiv.firstChild);
+    }
+
+    //creating the picture div content
     const pictureUrl = `./resources/img/${char.id}.jpg`
     const picture = document.createElement('img');
     picture.setAttribute('src', pictureUrl);
+
     pictureDiv.appendChild(picture);
 
     //creating size div content
-    const infoDiv = document.getElementById('info');
     const name = document.createElement('h2');
     name.innerHTML = `${char.name}`;
     const height = document.createElement('h3');
@@ -107,14 +118,16 @@ async function run() {
     infoDiv.appendChild(eye);
     resultsDiv.style.border = '3px dotted yellow';
 
+    
+
 
 
 }
 
-async function showObject () {
-    const data = await joinArrays();
-    console.log(data);
-}
+// async function showObject () {
+//     const data = await joinArrays();
+//     console.log(data);
+// }
 
 const button = document.getElementById('button');
 
