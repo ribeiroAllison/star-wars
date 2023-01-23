@@ -52,6 +52,18 @@ fieldset{
     
 }
 
+@media only screen and (max-width: 600px){
+    #results{
+        flex-direction: column;
+        width: 90%;
+        align-items: center;
+    }
+    
+    #results img{
+        width: 200px;
+    }
+}
+
 #results img{
     width: 350px;
     border-radius: 20px;
