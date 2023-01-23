@@ -79,7 +79,7 @@ async function getCharByTraits () {
 
     const shot = shotFirst();
     const nullChar = {
-        id: 83,
+        id: 82,
         name: 'Character not Found!',
         eye_color: 'N/A',
         height: 'N/A'
@@ -158,10 +158,6 @@ async function run() {
 
 }
 
-async function showObject () {
-    const data = await joinArrays();
-    console.log(data);
-}
 
 const button = document.getElementById('button');
 
