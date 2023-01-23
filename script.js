@@ -148,7 +148,7 @@ async function run() {
     const name = document.createElement('h2');
     name.innerHTML = `${char.name}`;
     const height = document.createElement('h3');
-    height.innerHTML = `Heigth: ${char.height}`;
+    height.innerHTML = `Heigth: ${char.height} cm`;
     const eye = document.createElement('h3');
     eye.innerHTML = `Eye Color: ${char.eye_color}`;
 
