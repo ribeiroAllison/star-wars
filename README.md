@@ -15,7 +15,7 @@ I developed this project to train **async functions**, get **data from API**, an
 ## How it works?
 - `Step 1:` Program will create an array with all character objects extracted from API. However, there are 9 pages of character objects and the program will store each page in a sub-array inside the mother array.
 - `Step 2:` Unify all sub-arrays into a single mother array containing all character objects.
-- `Step 3` Iterate through all objects of the unified array and check if they meet the criteria set by the user.
+- `Step 3:` Iterate through all objects of the unified array and check if they meet the criteria set by the user.
 - `Step 4:` Populate and display the **results div** with either a random character that meets the criteria, an error object if no matches were made or Han Solo object if the **"Shot Fist?"** option is checked.
 
 ## Technologies Used:
