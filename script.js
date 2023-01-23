@@ -54,7 +54,7 @@ async function getCharByTraits () {
     const eye_color = document.getElementById('eyeColor').value;
     const height = document.getElementById('height').value;
     for (char of charArray){
-        if(char.eye_color === eye_color && char.height > height){
+        if(char.eye_color === eye_color && Number(char.height) > height){
             charWithTraits.push(charArray.indexOf(char));
 
         }
@@ -158,10 +158,10 @@ async function run() {
 
 }
 
-// async function showObject () {
-//     const data = await joinArrays();
-//     console.log(data);
-// }
+async function showObject () {
+    const data = await joinArrays();
+    console.log(data);
+}
 
 const button = document.getElementById('button');
 
