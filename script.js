@@ -32,7 +32,7 @@ const getPeopleList =  async () =>{
 
     }
     
-    return charList; //array with all 9 pages worth of charaters objects, however each page is store in its own child array
+    return charList; //array with  all 9 pages worth of charaters objects, however each page is store in its own child array
 }
 
 
@@ -169,4 +169,3 @@ async function run() {
 const button = document.getElementById('button');
 
 button.addEventListener('click', run);
-
